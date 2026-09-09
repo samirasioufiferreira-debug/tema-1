@@ -3,46 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conexão Segura | Diga Não ao Cyberbullying</title>
+    <title>CyberGuardians | Respeito & Segurança Digital</title>
     <style>
-        /* CSS: Estilização do Site */
+        /* CSS: TEMA ROXO MODERNO / NEON */
         :root {
-            --primary-color: #2a2a72;
-            --secondary-color: #009ffd;
-            --accent-color: #ff4757;
-            --light-bg: #f4f7f6;
-            --dark-text: #2f3542;
-            --white: #ffffff;
+            --bg-dark: #0f0a1c;
+            --card-bg: #1a1233;
+            --primary-purple: #8a2be2;
+            --bright-purple: #b15eff;
+            --neon-pink: #ff007f;
+            --neon-cyan: #00f0ff;
+            --text-light: #f1f1f1;
+            --text-muted: #a39bc0;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body {
-            background-color: var(--light-bg);
-            color: var(--dark-text);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Cabecalho e Navegação */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-purple);
+            border-radius: 5px;
         }
 
         .container {
-            width: 85%;
-            max-width: 1200px;
+            width: 90%;
+            max-width: 1100px;
             margin: auto;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 18, 51, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--primary-purple);
+            padding: 15px 0;
         }
 
         nav {
@@ -52,8 +67,10 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--bright-purple);
+            text-shadow: 0 0 10px rgba(177, 94, 255, 0.5);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -62,328 +79,536 @@
         nav ul {
             display: flex;
             list-style: none;
+            gap: 20px;
         }
 
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: var(--white);
+        nav a {
+            color: var(--text-light);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
         }
 
-        nav ul li a:hover {
-            color: #ffa500;
+        nav a:hover {
+            color: var(--neon-cyan);
         }
 
-        /* Banner Hero */
+        /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
+            padding: 80px 0 50px 0;
             text-align: center;
-            padding: 100px 20px;
+            background: radial-gradient(circle at center, rgba(138, 43, 226, 0.2) 0%, rgba(15, 10, 28, 1) 70%);
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--bright-purple), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 1.2rem;
+            color: var(--text-muted);
             max-width: 700px;
             margin: 0 auto 30px auto;
         }
 
-        .btn-sos {
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 15px 30px;
-            text-decoration: none;
+        /* Botões Estilizados */
+        .btn {
+            background: linear-gradient(45deg, var(--primary-purple), var(--neon-pink));
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
             font-weight: bold;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            box-shadow: 0 4px 10px rgba(255,71,87,0.4);
-            transition: transform 0.2s, background-color 0.2s;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
             display: inline-block;
         }
 
-        .btn-sos:hover {
-            transform: scale(1.05);
-            background-color: #ff6b81;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.7);
         }
 
-        /* Seções Principais */
-        section {
-            padding: 60px 0;
-        }
-
+        /* Titulos de Seção */
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            position: relative;
+            font-size: 2.2rem;
+            margin: 60px 0 30px 0;
+            color: var(--bright-purple);
         }
 
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background-color: var(--secondary-color);
+        /* Interatividade 1: Abas de Orientação */
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--primary-purple);
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-purple);
+            box-shadow: 0 0 10px var(--bright-purple);
+        }
+
+        .tab-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            display: none;
+        }
+
+        .tab-content.active {
             display: block;
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
+            animation: fadeIn 0.5s ease;
         }
 
-        /* Cards Informativos */
-        .grid-cards {
+        /* Interatividade 2: Cards com Efeito Flip (Giro) */
+        .flip-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
 
-        .card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-
-        /* Seção Quiz */
-        .quiz-container {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .quiz-option {
-            background: #eef2f5;
-            padding: 12px 15px;
-            margin: 10px 0;
-            border-radius: 5px;
+        .flip-card {
+            background-color: transparent;
+            height: 220px;
+            perspective: 1000px;
             cursor: pointer;
-            transition: background 0.2s;
         }
 
-        .quiz-option:hover {
-            background: #dcdde1;
-        }
-
-        .quiz-result {
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-        /* Canais de Ajuda */
-        .ajuda-box {
-            background: #e1f5fe;
-            border-left: 5px solid var(--secondary-color);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 0 10px 10px 0;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
         }
 
-        /* Responsividade */
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--primary-purple);
+        }
+
+        .flip-card-front {
+            background: var(--card-bg);
+            color: var(--neon-pink);
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, var(--card-bg), var(--primary-purple));
+            color: var(--neon-cyan);
+            transform: rotateY(180deg);
+        }
+
+        /* Interatividade 3: Quiz Completo */
+        .quiz-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--primary-purple);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .quiz-opt {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.5);
+            padding: 12px 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .quiz-opt:hover {
+            background: rgba(138, 43, 226, 0.3);
+            border-color: var(--neon-cyan);
+        }
+
+        /* Interatividade 4: Gerador de Positividade */
+        .generator-box {
+            background: radial-gradient(circle, rgba(138,43,226,0.3) 0%, rgba(26,18,51,1) 100%);
+            border: 2px dashed var(--neon-cyan);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        #phrase-display {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin: 20px 0;
+            color: var(--neon-cyan);
+            min-height: 60px;
+        }
+
+        /* Floating S.O.S Button */
+        .sos-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--neon-pink);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.8);
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 127, 0.7); }
+            70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(255, 0, 127, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 127, 0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
+            color: var(--text-muted);
+        }
+
+        /* Responsivo */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav ul li {
-                margin: 0 10px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
+            nav { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2.1rem; }
+            .sos-float { width: 55px; height: 55px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Cabeçalho com Menu -->
+    <!-- Botão Flutuante de Emergência -->
+    <a href="#sos-section" class="sos-float" title="Ajuda Rápida">SOS</a>
+
+    <!-- Navbar -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">🛡️ Conexão Segura</div>
+                <div class="logo">⚡ CYBERGUARD</div>
                 <ul>
-                    <li><a href="#o-que-e">O que é?</a></li>
-                    <li><a href="#exemplos">Exemplos</a></li>
-                    <li><a href="#como-agir">Como Agir</a></li>
-                    <li><a href="#quiz">Testador de Atitude</a></li>
-                    <li><a href="#ajuda">Preciso de Ajuda</a></li>
+                    <li><a href="#guias">O que Fazer</a></li>
+                    <li><a href="#mitos">Mitos vs Fatos</a></li>
+                    <li><a href="#quiz">Quiz Digital</a></li>
+                    <li><a href="#gerador">Positividade</a></li>
+                    <li><a href="#sos-section">Canais SOS</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Banner Inicial -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1>Internet é lugar de respeito, não de violência.</h1>
-            <p>Aprenda a se proteger, apoiar seus colegas e fazer da rede um espaço seguro para todos. O que você digita tem peso no mundo real!</p>
-            <a href="#ajuda" class="btn-sos">Está passando por isso? Peça Ajuda!</a>
+            <h1>Sua atitude cria o clima da rede.</h1>
+            <p>O cyberbullying machuca de verdade. Seja a pessoa que quebra a corrente do ódio e transforma a internet em um espaço seguro para todos!</p>
+            <a href="#quiz" class="btn">Testar Meus Conhecimentos</a>
         </div>
     </section>
 
-    <!-- O que é Cyberbullying -->
-    <section id="o-que-e" class="container">
-        <h2 class="section-title">O que é Cyberbullying?</h2>
-        <div class="grid-cards">
-            <div class="card">
-                <h3>Violência Virtual</h3>
-                <p>O cyberbullying é a prática de humilhar, insultar, expor ou perseguir alguém usando a internet, redes sociais, jogos virtuais ou aplicativos de mensagens.</p>
-            </div>
-            <div class="card">
-                <h3>Diferente do Bullying Físico?</h3>
-                <p>Sim, porque o alcance é imediato e pode virar viral. Além disso, a vítima costuma se sentir insegura até dentro de casa, pois o celular está sempre com ela.</p>
-            </div>
-            <div class="card">
-                <h3>O impacto é REAL</h3>
-                <p>Apesar de acontecer em telas, as consequências emocionais são reais: ansiedade, queda no rendimento escolar, isolamento e baixa autoestima.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Exemplos Práticos -->
-    <section id="exemplos" style="background-color: #fff;">
-        <div class="container">
-            <h2 class="section-title">Como o Cyberbullying acontece?</h2>
-            <div class="grid-cards">
-                <div class="card">
-                    <h3>1. Mensagens de Ódio</h3>
-                    <p>Comentários ofensivos em fotos, posts ou envio de mensagens privadas com insultos e ameaças repetidas.</p>
-                </div>
-                <div class="card">
-                    <h3>2. Exposição Não Autorizada</h3>
-                    <p>Compartilhar fotos, vídeos ou segredos de alguém sem a permissão da pessoa, para ridicularizá-la.</p>
-                </div>
-                <div class="card">
-                    <h3>3. Perfis Falsos (Fakes)</h3>
-                    <p>Criar contas se passando por outra pessoa para manchar a reputação dela ou inventar boatos.</p>
-                </div>
-                <div class="card">
-                    <h3>4. Exclusão Proposital</h3>
-                    <p>Excluir um colega de grupos de WhatsApp da turma, jogos online ou interações de forma maldosa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- O que fazer? -->
-    <section id="como-agir" class="container">
-        <h2 class="section-title">O que fazer se acontecer com você ou com um amigo?</h2>
-        <div class="grid-cards">
-            <div class="card">
-                <h3>1. NÃO RESPONDA</h3>
-                <p>Quem faz cyberbullying busca reação. Ignorar ou não contra-atacar diminui o "estímulo" do agressor.</p>
-            </div>
-            <div class="card">
-                <h3>2. GUARDE AS PROVAS</h3>
-                <p>Tire <b>print screens</b> (capturas de tela) de todas as conversas, comentários e perfis. Elas servem como prova legal.</p>
-            </div>
-            <div class="card">
-                <h3>3. BLOQUEIE E DENUNCIE</h3>
-                <p>Use as ferramentas da própria rede social (Instagram, TikTok, WhatsApp) para bloquear a pessoa e denunciar a conta/post.</p>
-            </div>
-            <div class="card">
-                <h3>4. CONTE A UM ADULTO</h3>
-                <p>Fale com seus pais, responsáveis, professores, orientadores da escola ou coordenação. Você não precisa resolver isso sozinho!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interatividade: Quiz -->
-    <section id="quiz" style="background-color: #eef2f5;">
-        <div class="container">
-            <h2 class="section-title">Testador de Atitude Virtual</h2>
-            <div class="quiz-container">
-                <p><b>Cenário:</b> Um grupo da escola criou uma figurinha (meme) tirando sarro da foto de um colega e enviou num grupo. O que você faz?</p>
-                
-                <div class="quiz-option" onclick="responderQuiz(1)">A) Repasso a figurinha para outros grupos, afinal é só uma piada.</div>
-                <div class="quiz-option" onclick="responderQuiz(2)">B) Fico em silêncio, não digo nada, mas continuo no grupo acompanhando.</div>
-                <div class="quiz-option" onclick="responderQuiz(3)">C) Não repasso, digo no grupo que isso não é legal e ofereço apoio ao colega afetado.</div>
-
-                <div id="quiz-resultado" class="quiz-result"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Canais de Ajuda -->
-    <section id="ajuda" class="container">
-        <h2 class="section-title">Onde buscar ajuda agora mesmo?</h2>
+    <!-- Interatividade 1: Central de Guias em Abas -->
+    <section id="guias" class="container">
+        <h2 class="section-title">Como Agir no Mundo Digital?</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 20px;">Clique no seu perfil atual para ver orientações exclusivas:</p>
         
-        <div class="ajuda-box">
-            <h3>🏫 Na sua escola</h3>
-            <p>Procure a Direção, Coordenação Pedagógica ou a Orientação Educacional. A escola é um lugar seguro e tem o dever de ajudar!</p>
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab(event, 'tab-vitima')">🚨 Se você é a Vítima</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-testemunha')">👀 Se você Viu Acontecer</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-consciencia')">🧠 Pensar antes de Postar</button>
         </div>
 
-        <div class="ajuda-box">
-            <h3>📞 CVV - Centro de Valorização da Vida</h3>
-            <p>Precisa conversar com alguém anonimamente e desabafar? Ligue para <b>188</b> (Ligação gratuita e 24h) ou acesse <a href="https://cvv.org.br" target="_blank">cvv.org.br</a>.</p>
+        <div id="tab-vitima" class="tab-content active">
+            <h3 style="color: var(--neon-pink); margin-bottom: 10px;">Proteja-se imediatamente:</h3>
+            <ul>
+                <li><b>Não responda com raiva:</b> O agressor quer atenção e ver sua reação.</li>
+                <li><b>Tire Prints de TUDO:</b> Salve conversas, horários, links e perfis. Prints são provas válidas.</li>
+                <li><b>Bloqueie sem dó:</b> Use o botão de bloquear nas redes sociais e jogos.</li>
+                <li><b>Peça ajuda a um adulto:</b> Conte para seus pais, professores ou direção da escola.</li>
+            </ul>
         </div>
 
-        <div class="ajuda-box">
-            <h3>🌐 SaferNet Brasil</h3>
-            <p>Portal especializado em ajudar vítimas de crimes virtuais e cyberbullying. Denuncie e peça ajuda em <a href="https://canaldajuda.org.br" target="_blank">canaldajuda.org.br</a>.</p>
+        <div id="tab-testemunha" class="tab-content">
+            <h3 style="color: var(--neon-cyan); margin-bottom: 10px;">Não seja um espectador passivo:</h3>
+            <ul>
+                <li><b>Não curta nem compartilhe:</b> Repassar a piada ou o exposed torna você cúmplice.</li>
+                <li><b>Apoie a vítima em privado:</b> Mande uma mensagem amigável mostrando que ela não está sozinha.</li>
+                <li><b>Denuncie a postagem:</b> Use a ferramenta de denúncia anônima do aplicativo.</li>
+                <li><b>Avise a coordenação:</b> Alerte os responsáveis na escola de forma discreta.</li>
+            </ul>
         </div>
 
-        <div class="ajuda-box">
-            <h3>⚖️ Disque 100 (Direitos Humanos)</h3>
-            <p>Serviço público e gratuito para denunciar violações de direitos de crianças e adolescentes.</p>
+        <div id="tab-consciencia" class="tab-content">
+            <h3 style="color: var(--bright-purple); margin-bottom: 10px;">Antes de clicar em "Enviar":</h3>
+            <ul>
+                <li><b>O Teste da Vida Real:</b> Você falaria isso na cara da pessoa na frente de todo mundo?</li>
+                <li><b>A Regra da Figurinha:</b> Criar memes e figurinhas ridicularizando o corpo ou erro de alguém É cyberbullying.</li>
+                <li><b>O Registro é Eterno:</b> O que vai para a rede nunca desaparece totalmente e pode prejudicar seu futuro.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Interatividade 2: Virar as Cartas (Mitos x Fatos) -->
+    <section id="mitos" class="container">
+        <h2 class="section-title">Mitos vs. Fatos (Clique no Card)</h2>
+        <div class="flip-grid">
+            
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>MITO ❌</h3>
+                        <p>"É só uma brincadeira, o pessoal é muito mimimi."</p>
+                        <small style="margin-top:15px; opacity:0.7;">(Clique para virar)</small>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>FATO ✅</h3>
+                        <p>Só é brincadeira se AMBOS estiverem rindo. Se faz alguém sofrer ou se sentir humilhado, é violência moral.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>MITO ❌</h3>
+                        <p>"Na internet todo mundo é anônimo e ninguém pega."</p>
+                        <small style="margin-top:15px; opacity:0.7;">(Clique para virar)</small>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>FATO ✅</h3>
+                        <p>Fakes deixam rastro de IP. Delegacias de crimes virtuais conseguem identificar os autores dos ataques.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>MITO ❌</h3>
+                        <p>"Se eu não respondi o ataque, fui fraco."</p>
+                        <small style="margin-top:15px; opacity:0.7;">(Clique para virar)</small>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>FATO ✅</h3>
+                        <p>Não responder e procurar as autoridades/escola demonstra maturidade e corta o combustível do agressor.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interatividade 3: Quiz Dinâmico -->
+    <section id="quiz" class="container">
+        <h2 class="section-title">Desafio Cyber-Consciência</h2>
+        <div class="quiz-box">
+            <div id="quiz-screen">
+                <h3 id="question-text" style="margin-bottom: 20px;">Carregando pergunta...</h3>
+                <div id="options-container"></div>
+            </div>
+            <div id="quiz-result-screen" style="display: none; text-align: center;">
+                <h2>Desafio Concluído! 🎉</h2>
+                <p id="score-text" style="font-size: 1.5rem; margin: 20px 0; color: var(--neon-cyan);"></p>
+                <button class="btn" onclick="restartQuiz()">Tentar Novamente</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interatividade 4: Gerador de Positividade -->
+    <section id="gerador" class="container">
+        <div class="generator-box">
+            <h2>✨ Gerador de Impulso Positivo</h2>
+            <p style="color: var(--text-muted);">Precisa de uma frase para postar ou mandar no privado para aquele amigo que está triste?</p>
+            <div id="phrase-display">Clique no botão abaixo para gerar uma corrente do bem!</div>
+            <button class="btn" onclick="generatePhrase()">Gerar Mensagem de Apoio</button>
+        </div>
+    </section>
+
+    <!-- Seção SOS e Canais de Ajuda -->
+    <section id="sos-section" class="container">
+        <h2 class="section-title" style="color: var(--neon-pink);">Precisa de Ajuda? Não Guarde para Você!</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border-left: 4px solid var(--neon-pink);">
+                <h3>🏫 Orientação Escolar</h3>
+                <p>Procure a coordenação, professores ou psicólogo da sua escola. Eles saberão intervir sem expor você.</p>
+            </div>
+            <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border-left: 4px solid var(--neon-cyan);">
+                <h3>📞 CVV (Apoio Emocional)</h3>
+                <p>Ligação gratuita para o número <b>188</b> (24 horas) ou acesse <a href="https://cvv.org.br" target="_blank" style="color: var(--neon-cyan);">cvv.org.br</a> para chat anônimo.</p>
+            </div>
+            <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border-left: 4px solid var(--bright-purple);">
+                <h3>🛡️ SaferNet Brasil</h3>
+                <p>Canal de ajuda e denúncias de crimes digitais para crianças e jovens: <a href="https://canaldajuda.org.br" target="_blank" style="color: var(--bright-purple);">canaldajuda.org.br</a>.</p>
+            </div>
         </div>
     </section>
 
     <!-- Rodapé -->
     <footer>
-        <div class="container">
-            <p>Projeto Educacional de Conscientização sobre Cyberbullying | Respeito na Rede</p>
-            <p><small>Desenvolvido para apoio a alunos do Ensino Fundamental II e Ensino Médio.</small></p>
-        </div>
+        <p>CyberGuardians © | Projeto Educacional de Combate ao Cyberbullying</p>
+        <p><small>Desenvolvido para turmas do 6º Ano EF ao 3º Ano EM.</small></p>
     </footer>
 
-    <!-- JavaScript: Interatividade -->
+    <!-- JAVASCRIPT DA INTERATIVIDADE -->
     <script>
-        function responderQuiz(opcao) {
-            const resultado = document.getElementById('quiz-resultado');
-            
-            if(opcao === 1) {
-                resultado.style.color = "#ff4757";
-                resultado.innerHTML = "❌ <b>Atitude Errada!</b> Ao repassar, você se torna cúmplice do cyberbullying e aumenta o sofrimento do seu colega.";
-            } else if(opcao === 2) {
-                resultado.style.color = "#e67e22";
-                resultado.innerHTML = "⚠️ <b>Atenção:</b> Ser um 'espectador passivo' não ajuda. O silêncio faz o agressor achar que todos concordam com ele.";
-            } else if(opcao === 3) {
-                resultado.style.color = "#2ed573";
-                resultado.innerHTML = "✅ <b>Atitude Correta!</b> Mandou muito bem! Não espalhar e apoiar quem está sendo atacado faz de você uma pessoa empática e responsável na rede.";
+        // 1. Lógica das Abas
+        function openTab(evt, tabName) {
+            let contents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
             }
+            let buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // 2. Lógica do Quiz
+        const quizData = [
+            {
+                question: "Criar uma conta fake usando a foto de um colega para postar coisas constrangedoras é:",
+                options: [
+                    "Uma zoeira normal de internet",
+                    "Cyberbullying e Falso Testemunho/Falsa Identidade (Crime)",
+                    "Apenas uma pegadinha inofensiva"
+                ],
+                correct: 1
+            },
+            {
+                question: "Se você recebe uma foto embaraçosa de um colega no grupo do WhatsApp, o que deve fazer?",
+                options: [
+                    "Apagar a foto, não repassar e alertar para pararem",
+                    "Encaminhar para o seu melhor amigo ver",
+                    "Salvar para usar como figurinha depois"
+                ],
+                correct: 0
+            },
+            {
+                question: "Qual é a melhor forma de juntar provas se você for vítima de ataques online?",
+                options: [
+                    "Xingar a pessoa de volta nos comentários",
+                    "Tirar capturas de tela (prints) com data/hora e salvar o link do perfil",
+                    "Excluir sua conta na hora e fingir que nada aconteceu"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const q = quizData[currentQuestion];
+            document.getElementById("question-text").innerText = `${currentQuestion + 1}. ${q.question}`;
+            const optionsWin = document.getElementById("options-container");
+            optionsWin.innerHTML = "";
+
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement("div");
+                btn.className = "quiz-opt";
+                btn.innerText = opt;
+                btn.onclick = () => selectOption(index);
+                optionsWin.appendChild(btn);
+            });
+        }
+
+        function selectOption(index) {
+            if (index === quizData[currentQuestion].correct) {
+                score++;
+            }
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById("quiz-screen").style.display = "none";
+            document.getElementById("quiz-result-screen").style.display = "block";
+            document.getElementById("score-text").innerText = `Você acertou ${score} de ${quizData.length} perguntas!`;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById("quiz-screen").style.display = "block";
+            document.getElementById("quiz-result-screen").style.display = "none";
+            loadQuestion();
+        }
+
+        // Inicia o Quiz ao carregar
+        loadQuestion();
+
+        // 3. Gerador de Frases Positivas
+        const phrases = [
+            "“Ninguém pode fazer você se sentir inferior sem o seu consentimento.” – Eleanor Roosevelt",
+            "Sua voz tem poder. Use-a para defender, nunca para diminuir alguém!",
+            "Elegância digital é escolher não espalhar o ódio dos outros.",
+            "Uma mensagem gentil pode mudar completamente o dia difícil de alguém. Experimente!",
+            "A internet é enorme, mas não há espaço nela para a intolerância.",
+            "Sua empatia na rede define seu caráter na vida real."
+        ];
+
+        function generatePhrase() {
+            const display = document.getElementById("phrase-display");
+            const randomIndex = Math.floor(Math.random() * phrases.length);
+            display.style.opacity = 0;
+            setTimeout(() => {
+                display.innerText = phrases[randomIndex];
+                display.style.opacity = 1;
+            }, 200);
         }
     </script>
 </body>
